@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/CSS/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/CSS/style.css"> 
+    <title>Temp-Tations</title>
+</head>
+<body class="has-navbar-fixed-top">
+
+  <div class="navbar-menu navbar is-transparent is-fixed-top is-flex-touch">
+    <div class="navbar-start">
+      <div class="navbar-item is-flex-touch">
+     <p id="currentTemperature" class="is-size-8-touch  currentTemp"> Current Temperature </p>
+    </div>
+    </div>
+  
+    <div class="navbar-end is-flex-mobile">
+        <div class="navbar-item">
+        <p id= "currentCity" class="is-size-8-touch  currentCity"> Your City </p>
+      </div>
+  </div>
+</div>
+
+
+        <section class="hero is-info is-bold is-medium">
+            <div class="hero-body">
+                <div class="container">
+                  <img class="image is-centered logo" src="../pikachu-posse/Assets/Images/TempTations_white.png" alt="TempTations">
+                    <h1 class="title">Tasty table treats for temperatures, tundra to tropical. </h1>
+                    <h2 class="subtitle">
+                      Enter your zipcode, and one main ingredient to find recipes that fit the weather outside. 
+                    </h2>
+                    
+                    <div class="row">
+                            <p class="control has-icons-left">
+                                    <input id="user-location" class="input" class = "zipcode" type="search" placeholder="Search by US Zip Code">
+                                      <span class="icon is-small is-left">
+                                            <i class="fas fa-cloud-meatball"></i>
+                                      </span>
+                                  </p>
+                                  
+                            <br>
+                            <p class="control has-icons-left">
+                              <input id="user-search" class="input" type="search" placeholder="Search by 1-2 main ingredients">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-utensils"></i>
+                                </span>
+                            </p>
+                            <br>
+                        <button id="search-button" class="search-button button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <br>
+                              <label class="checkbox" >
+                                    <input type="checkbox" id="veganCheckBox">
+                                    Vegan
+                               </label>
+                                <label class="checkbox">
+                                        <input type="checkbox" id="vegetarianCheckBox">
+                                        Vegetarian
+                                </label>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="section choices-section second">
+            <div id="choice-display" class="container">
+      <!-- bulma tiles work with a family ancestor/parent/children system -->
+      <h1 class="title">Enter Zip & Ingredient to View Recipes</h1>          
+      <div class="tile is-ancestor">
+                    <div id="parent0" class="tile is-parent preview">
+                        <article class="tile is-child box cards">
+                          <p class="title 2">Recipe 1</p>
+                          <p class="cooktime subtitle1"></p>
+                        </article>
+                    </div>
+                    <div id="parent1" class="tile is-parent preview">
+                        <article class="tile is-child box cards">
+                          <p class="title 2">Recipe 2</p>
+                          <p class="cooktime subtitle2"></p>
+                        </article>
+                    </div>
+                    <div id="parent2" class="tile is-parent preview">
+                        <article class="tile is-child box cards">
+                          <p class="title 2">Recipe 3</p>
+                          <p class="cooktime subtitle3"></p>
+                        </div>
+                        </article>
+                </div>
+                  <div class="tile is-ancestor">
+                        <div id="parent3" class="tile is-parent preview">
+                          <article class="tile is-child box cards">
+                            <p class="title 2">Recipe 4</p>
+                            <p class="cooktime subtitle4"></p>
+                          </article>
+                        </div>
+                        <div id="parent4" class="tile is-parent preview">
+                          <article class="tile is-child box cards">
+                            <p class="title 2">Recipe 5</p>
+                            <p class="cooktime subtitle5"></p>
+                          </article>
+                        </div>
+                        <div id="parent5" class="tile is-parent preview">
+                          <article class="tile is-child box cards">
+                            <p class="title 2">Recipe 6</p>
+                            <p class="cooktime subtitle6"></p>
+                            </div>
+                          </article>
+                    </div>
+                </div>
+        </section>
+        
+        <!-- This will all be hidden at the start, and then populate after the user clicks on a recipe -->
+        <section class="section recipe-section has-background-info">
+          <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+                  <div class="tile is-child box">
+                    <p class="title title-two">Ingredients</p>
+                    <ul id="ingredientsList" class="ingredients-list">
+                    </ul>
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child box">
+                    <p id="recipeLabel" class="title title-two" >Recipe Title</p>
+                    <hr>
+                    <a href="" target="_blank" id="recipeLink" >See Full Recipe</a>
+                    <br>
+                    <br>
+                    <img class="is-hidden" id="recipeImage" class="is-loading" src="#" ></img>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="foot is-flex-touch">
+          <a href="https://github.com/ptrckbrown94" target="_blank" class="button">Patrick Brown</a>
+          <a href="https://github.com/TheMaryJacobs" target="_blank" class="button">Mary Jacobs</a>
+          <a href="https://github.com/marktmcgraw" target="_blank" class="button">Mark McGraw</a>
+          <a href="https://github.com/SirPotatoIV" target="_blank" class="button">Jake O'Toole</a>
+          </div>
+          <br>
+          <div class="foot">
+            <p>Custom background by <a href="https://www.svgbackgrounds.com/">SVGBackgrounds.com.</a></p>
+          </div>
+          <br>
+          <div class="foot">
+          <div id="edamam-badge" data-color="white"></div>
+          </div>
+      </div>
+        </footer>
+
+ <!-- Scripts located below -->
+        <!-- Used to gain access to axios library -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- Used to gain access to the lodash library -->
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+        <!-- Temporarily storing a response from the food api to reduce total number of requests used -->
+        <script src="./Assets/Javascript/foodObject.js"></script>
+        <!--Edamam Attribution Badge-->
+        <script src="https://developer.edamam.com/attribution/badge.js"></script>
+        <!-- Our javascript file -->
+        <script src="./Assets/Javascript/script.js"></script>
+</body>
+</html>
